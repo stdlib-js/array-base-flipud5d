@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2023 The Stdlib Authors.
@@ -16,14 +16,11 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
-var flipud4d = require( '@stdlib/array-base-flipud4d' );
-
-
-// MAIN //
+import { Array5D } from '@stdlib/types/array';
 
 /**
 * Reverses the order of elements along the second-to-last dimension of a five-dimensional nested input array.
@@ -32,8 +29,8 @@ var flipud4d = require( '@stdlib/array-base-flipud4d' );
 *
 * -   The function does **not** perform a deep copy of nested array elements.
 *
-* @param {ArrayLikeObject<ArrayLikeObject<ArrayLikeObject<ArrayLikeObject<Collection>>>>} x - nested input array
-* @returns {Array<Array<Array<Array<Collection>>>>} output array
+* @param x - input nested array
+* @returns output array
 *
 * @example
 * var x = [ [ [ [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ] ] ] ] ];
@@ -41,18 +38,9 @@ var flipud4d = require( '@stdlib/array-base-flipud4d' );
 * var out = flipud5d( x );
 * // returns [ [ [ [ [ 5, 6 ], [ 3, 4 ], [ 1, 2 ] ] ] ] ]
 */
-function flipud5d( x ) {
-	var out;
-	var i;
-
-	out = [];
-	for ( i = 0; i < x.length; i++ ) {
-		out.push( flipud4d( x[ i ] ) );
-	}
-	return out;
-}
+declare function flipud5d<T = unknown>( x: Array5D<T> ): Array5D<T>;
 
 
 // EXPORTS //
 
-module.exports = flipud5d;
+export = flipud5d;
